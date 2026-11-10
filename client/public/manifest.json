@@ -1,0 +1,18 @@
+{
+  "name": "Kelime Bombası",
+  "short_name": "KelimeBombası",
+  "description": "Gerçek Zamanlı Çok Oyunculu Türkçe Kelime Oyunu",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0c0a1d",
+  "theme_color": "#0c0a1d",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bombGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#3a3055" />
+      <stop offset="40%" stop-color="#18132e" />
+      <stop offset="100%" stop-color="#0b0818" />
+    </radialGradient>
+    <radialGradient id="fireGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff" />
+      <stop offset="40%" stop-color="#ffdd00" />
+      <stop offset="70%" stop-color="#ff3b30" />
+      <stop offset="100%" stop-color="transparent" />
+    </radialGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="#130f26" />
+  
+  <!-- Bomb body -->
+  <circle cx="240" cy="290" r="160" fill="url(#bombGrad)" stroke="#ff4500" stroke-width="4" filter="url(#glow)" />
+  <circle cx="190" cy="230" r="35" fill="#ffffff" opacity="0.15" />
+
+  <!-- Cap -->
+  <rect x="290" y="145" width="45" height="30" rx="6" transform="rotate(35 290 145)" fill="#6c5ce7" />
+
+  <!-- Fuse -->
+  <path d="M 330 140 Q 380 90 410 110" fill="none" stroke="#dcdde1" stroke-width="12" stroke-linecap="round" />
+
+  <!-- Spark flame -->
+  <circle cx="410" cy="110" r="38" fill="url(#fireGrad)" filter="url(#glow)" />
+  
+  <!-- Little sparks -->
+  <polygon points="410,65 415,95 440,90 418,105 435,130 405,115 390,135 395,105 375,95 402,92" fill="#ffea00" />
+</svg>

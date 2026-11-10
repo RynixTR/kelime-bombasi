@@ -1,0 +1,29 @@
+{
+  "name": "kelime-bombasi",
+  "version": "1.0.0",
+  "description": "Kelime Bombası - Gerçek Zamanlı Çok Oyunculu Türkçe Kelime Oyunu",
+  "main": "server/server.js",
+  "type": "module",
+  "scripts": {
+    "postinstall": "npm --prefix server install && npm --prefix client install",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "build:client": "npm --prefix client run build",
+    "build:dict": "npm --prefix server run build:dict",
+    "build": "npm run build:client",
+    "start": "node server/server.js",
+    "dev": "node -e \"const { spawn } = require('child_process'); spawn('npm', ['--prefix', 'server', 'run', 'dev'], { stdio: 'inherit', shell: true }); spawn('npm', ['--prefix', 'client', 'run', 'dev'], { stdio: 'inherit', shell: true });\""
+  },
+  "keywords": [
+    "game",
+    "multiplayer",
+    "turkish",
+    "word-bomb",
+    "kelime-oyunu"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "socket.io-client": "^4.8.4"
+  }
+}

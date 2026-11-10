@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Kelime Bombası 💣 Canlı Türkçe Kelime Oyunu</title>
+  <meta name="description" content="Arkadaşlarınla gerçek zamanlı, nefes kesen Türkçe kelime bombası oyunu! Heceni bul, kelimeni yaz, bombayı devret!" />
+  <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#0c0a1d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <!-- Google Fonts for Gaming Identity (Outfit & Fredoka with Turkish support) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/src/styles/designSystem.css" />
+  <link rel="stylesheet" href="/src/styles/animations.css" />
+</head>
+<body>
+  <!-- Desktop frame wrapper (centers the mobile experience on desktop) -->
+  <div class="app-layout-wrapper">
+    <div id="app" class="mobile-viewport">
+      <!-- Top Bar: Sound Toggle & Header status -->
+      <header class="app-header">
+        <div class="header-left">
+          <div class="game-logo-badge">
+            <span class="logo-emoji">💣</span>
+            <span class="logo-text">Kelime<span class="logo-highlight">Bombası</span></span>
+          </div>
+        </div>
+        <div class="header-right">
+          <button id="btn-sound-toggle" class="icon-btn" aria-label="Sesi Aç/Kapat" title="Sesi Aç/Kapat">
+            <span id="sound-icon">🔊</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Dynamic Screen Container -->
+      <main id="screen-container" class="screen-container"></main>
+
+      <!-- Floating Emoji Cannon Layer -->
+      <div id="emoji-layer" class="emoji-layer" aria-hidden="true"></div>
+
+      <!-- Toast / Feedback Notification Banner -->
+      <div id="toast-banner" class="toast-banner hidden" role="alert"></div>
+
+      <!-- Modal Container -->
+      <div id="modal-container" class="modal-container hidden"></div>
+    </div>
+
+    <!-- Desktop Companion Sidebar (Visible only on >768px desktop screens) -->
+    <aside class="desktop-companion">
+      <div class="companion-card">
+        <div class="companion-badge">📱 Mobil Odaklı Oyun</div>
+        <h3>Arkadaşlarını Davet Et!</h3>
+        <p>Kelime Bombası, arkadaşlarla telefonlardan yan yana veya uzaktan oynamak için özel tasarlandı.</p>
+        <div class="qr-box">
+          <div id="desktop-qr" class="qr-canvas-holder"></div>
+          <span class="qr-subtext">Telefon kamerasıyla tara ve katıl!</span>
+        </div>
+        <div class="room-share-actions">
+          <button id="btn-desktop-copy-link" class="btn btn-secondary btn-block">
+            🔗 Oyun Linkini Kopyala
+          </button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

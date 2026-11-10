@@ -1,0 +1,148 @@
+/* 60fps GPU-Accelerated Animations */
+
+@keyframes modalPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.6) rotate(0deg);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(-40px) scale(1.1) rotate(6deg);
+  }
+  75% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-380px) scale(1.3) rotate(-15deg);
+  }
+}
+
+/* Screen Shake for Explosion */
+@keyframes screenShake {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  10% { transform: translate(-10px, -12px) rotate(-1.5deg); }
+  20% { transform: translate(12px, 8px) rotate(1.5deg); }
+  30% { transform: translate(-14px, 10px) rotate(-1deg); }
+  40% { transform: translate(10px, -8px) rotate(1deg); }
+  50% { transform: translate(-6px, -6px) rotate(-0.5deg); }
+  60% { transform: translate(6px, 4px) rotate(0.5deg); }
+  70% { transform: translate(-3px, 3px) rotate(0deg); }
+  80% { transform: translate(3px, -2px) rotate(0deg); }
+}
+
+.shake-screen {
+  animation: screenShake 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Flash Red on Explosion */
+@keyframes flashRed {
+  0% { background-color: rgba(239, 68, 68, 0.7); }
+  100% { background-color: transparent; }
+}
+
+.flash-screen {
+  animation: flashRed 0.5s ease-out;
+}
+
+/* Bomb Pulsing (normal vs critical tension) */
+@keyframes bombPulseNormal {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 12px rgba(255, 69, 0, 0.3));
+  }
+  50% {
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.6));
+  }
+}
+
+@keyframes bombPulseCritical {
+  0%, 100% {
+    transform: scale(1.02);
+    filter: drop-shadow(0 0 18px rgba(255, 30, 0, 0.7));
+  }
+  50% {
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 35px rgba(255, 0, 0, 0.95));
+  }
+}
+
+.bomb-pulse-normal {
+  animation: bombPulseNormal 1.4s infinite ease-in-out;
+}
+
+.bomb-pulse-critical {
+  animation: bombPulseCritical 0.45s infinite ease-in-out;
+}
+
+/* Fuse spark wiggle */
+@keyframes sparkWiggle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.9;
+  }
+  25% {
+    transform: scale(1.3) rotate(15deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.9) rotate(-10deg);
+    opacity: 0.85;
+  }
+  75% {
+    transform: scale(1.4) rotate(20deg);
+    opacity: 1;
+  }
+}
+
+.spark-animated {
+  transform-origin: center;
+  animation: sparkWiggle 0.2s infinite ease-in-out;
+}
+
+/* Heartbeat for active player */
+@keyframes turnGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 2px var(--primary-orange), 0 0 20px rgba(255, 69, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 4px var(--accent-yellow), 0 0 30px rgba(255, 183, 3, 0.8);
+  }
+}
+
+.turn-active-glow {
+  animation: turnGlowPulse 1.2s infinite ease-in-out;
+}
+
+/* Heart pop on loss */
+@keyframes heartLost {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(0.7); opacity: 0.2; filter: grayscale(1); }
+}
+
+.heart-lost {
+  animation: heartLost 0.4s forwards ease-out;
+}
+
+/* Reduced Motion Preference Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

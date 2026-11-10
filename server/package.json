@@ -1,0 +1,17 @@
+{
+  "name": "kelime-bombasi-server",
+  "version": "1.0.0",
+  "description": "Kelime Bombasi Real-time Multiplayer Turkish Word Game Server",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "build:dict": "node scripts/buildDictionary.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
+  }
+}
